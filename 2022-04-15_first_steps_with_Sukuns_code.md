@@ -142,7 +142,7 @@ done
 
 ```
 
-### 7. Questions to Sukun (and his answers):
+### 7. My questions to Sukun (and his answers):
 
 **(a) Regarding the compilation of the fortran libraries (in the makefile):**
 Your compilation line (with mpiifort) includes:
@@ -150,21 +150,27 @@ Your compilation line (with mpiifort) includes:
 `-L/cluster/software/netCDF-Fortran/4.5.2-iimpi-2019b/lib -lfftw3 -lnetcdf -lnetcdff -lhdf5_hl -lhdf5 -lsz -lz -ldl -lm -liomp5 -lpthread -lcurl`
 It works for me (compilation and run) only if I remove the `-lsz` option.
 —> Do you have any idea if/what this option `-lsz` is needed for and if it matters if I remove it? (Again, by removing it I am able to compile and run the code apparently successfully).
+
 ***A**: I think you can remove it as you can compile it successfully. I am not good at compilation on unix. It could depends the specific machine.*
-***LB’s answer**: if it compiles and run and the code is not missing any library, it is just fine to remove it.*
+
+***Laurent B.’s answer**: if it compiles and run and the code is not missing any library, it is just fine to remove it.*
+
 
 
 **(b) input grid size:**
 I need to understand better what is the input grid size (xdim=1024, ydim=1024 in fortran routine main_pseudo2D.F90).:
 Are we working on the space grid of the input forcing files or in the space grid of the model?
 And why 1024x1024? Is that the exact grid size or an approximation to use a power of 2?
+
 **A**: *We want to add perturbation to the forcing grid. Note the grid has be a polar stereograph grid otherwise it needs to interpolate the raw forcing data to a polar stereograph grid. The perturbation grid size is power of 2, said xdim=2^N, because the perturbation code uses FFT algorithm, which runs fastest if the domain size is power of 2. N should be the integer so that 2^(N-1)< size of forcing grid<= 2^N.* 
 
 **(c) output grid size:**
 Why have the output perturbations become 1-dimension in the output files? (I mean dimension xy in the syncforc.nc files) And how is this 1-dimension ‘xy’ then handled by the model?
+
 **A:** *Using 1-dimension data is easily applied for nextsim data structure and easily saved in this fortran code. The data can export the data in 2-dimension, refering to function saverandfldsynforc() in modrandomforcing.f90*
 
 
 **(d) usage of the perturbation files:**
 More generally, how are these perturbation files then used in a nextsim run? Where could I look at an example code where you have applied those perturbations to the atmospheric forcing? Which GitHub branch should I look at? What part of the code?
+
 **A**: *You can search for code segment within # ifdef ENSEMBLE label or function perturbLoadedData() directly in nextsim/model/externaldata.cpp. For example, https://github.com/nansencenter/nextsim/blob/IOPerturbation-fram-compile/model/externaldata.cpp # L233*
