@@ -109,7 +109,7 @@ mkdir ./bin/
 
 ```
 
-### 6. Run compile and execute script : SUCCESS (2022-04-15):
+### 6. Compile and execute script : SUCCESS (2022-04-15):
 (i ran this interactively here for the test)
 ```
 #!/bin/bash
