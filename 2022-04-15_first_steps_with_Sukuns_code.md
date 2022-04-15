@@ -109,8 +109,8 @@ mkdir ./bin/
 
 ```
 
-### 6. Run compile and execute script:
-(i ran this interactively here for the test (i didn't use sbatch ...)
+### 6. Run compile and execute script : SUCCESS (2022-04-15):
+(i ran this interactively here for the test)
 ```
 #!/bin/bash
 work_path=$(cd `dirname $0`;pwd)
@@ -127,19 +127,17 @@ echo "work_path=" $work_path
 
 # create random perturbations
 ensemble_size=3
-#
- for (( i=1; i<=${ensemble_size}; i++ )); do
-     mem_path=${work_path}/result/mem$i
-     mkdir -p $mem_path
-     cd $mem_path
-     cp $work_path/bin/p_pseudo2D . 
-     cp $work_path/pseudo2D.nml .
-     ./p_pseudo2D
-     echo "Finish $i over ${ensemble_size} members"
- done
 
 ulimit -s 2000000 # set sufficient stack  https://stackoverflow.com/questions/66034666/ulimit-stack-size-through-slurm-script
   
- $work_path/slurm_script.sh $work_path $ensemble_size
+for (( i=1; i<=${ensemble_size}; i++ )); do
+    mem_path=${work_path}/result/mem$i
+    mkdir -p $mem_path
+    cd $mem_path
+    cp $work_path/bin/p_pseudo2D . 
+    cp $work_path/pseudo2D.nml .
+    ./p_pseudo2D
+    echo "Finish $i over ${ensemble_size} members"
+done
 
 ```
