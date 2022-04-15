@@ -35,3 +35,59 @@ docker run —rm -it -v /Users/leroux/DATA/NEXTSIM:/mesh -v /Users/leroux/DATA/N
         —mca pml ob1 \
         nextsim.exec —config-files=/data/coast_10km.cfg
 ```
+
+---
+## 2. Realistic config from Einar's tutorial (FAILS-15/04/2022):
+* Get data from Aurélie (from Einar's SASIP tutorial from Jun 2021).
+* Run test:
+```
+cd /Users/leroux/DATA/NEXTSIM/CLIMRUN
+./run_me.sh
+```
+where run_me.sh is:
+```
+#! /bin/bash
+
+docker run -it —rm \
+        -v /Users/leroux/WORK/DEV/NEXTSIM/nextsim:/nextsim \
+        -v /Users/leroux/WORK/DEV/NEXTSIM/nextsim/mesh:/mesh \
+        -v /Users/leroux/DATA/NEXTSIM/CLIMRUN:/data \
+        -v /Users/leroux/DATA/NEXTSIM/CLIMRUN/experiments:/experiments \
+        nextsim \
+        mpirun —allow-run-as-root \
+        —mca btl_vader_single_copy_mechanism none \
+        —mca btl ^openib \
+        —mca pml ob1 \
+        -np 3 \
+        nextsim.exec —config-files=/data/bbm_control.cfg
+```
+
+* Doing the above, i get a first error:
+```
+(base) leroux@mcp-oceannext-03:CLIMRUN>>./run_me.sh 
+Reading /data/bbm_control.cfg...
+terminate called after throwing an instance of 'std::runtime_error'
+terminate called after throwing an instance of 'terminate called after throwing an instance of 'std::runtime_error'
+std::runtime_error  what():  unrecognised option 'thermo.h_thin_max'
+[616aecfb3749:00013] *** Process received signal ***
+```
+
+* Now after removing `h_thin_max=0.3` in  part `[thermo]` of the  namelist `bbm_control.cfg` and copiying the mesh file to `/Users/leroux/WORK/DEV/NEXTSIM/nextsim/mesh` i ran again run_me.sh and got a second error:
+```
+(base) leroux@mcp-oceannext-03:CLIMRUN>>./run_me.sh 
+Reading /data/bbm_control.cfg…
+nextsim.exec: symbol lookup error: /nextsim/lib/libbamg.so.1: undefined symbol: _ZN7DataSetC1Ev
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code.. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[30101,1],0]
+  Exit code:    127
+--------------------------------------------------------------------------
+```
+
+
