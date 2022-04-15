@@ -90,3 +90,56 @@ clean:
         cd $(OBJS); rm -f *.o *.mod
         rm -f $(P_E)
 ```
+
+### 4. On jean zay load modules:
+```
+module load intel-compilers/19.0.4
+module load hdf5/1.10.5-mpi
+module load netcdf/4.7.2-mpi
+module load netcdf-fortran/4.5.2-mpi
+module load fftw/3.3.8-mpi
+```
+
+### 5. Create missing directories for outputs
+```
+cd /gpfswork/rech/cli/regi915/NEXTSIM/offline_perturbation/
+mkdir ./objs/
+mkdir ./results/
+mkdir ./bin/
+
+```
+
+### 6. Run compile and execute script:
+(i ran this interactively here for the test (i didn't use sbatch ...)
+```
+#!/bin/bash
+work_path=$(cd `dirname $0`;pwd)
+echo "work_path=" $work_path
+
+# # compile the code 
+ [ ! -d bin ] && mkdir bin
+ [ ! -d objs ] && mkdir objs
+ rm -rf $work_path/result/*
+ cd $work_path/src
+ make clean; make
+
+ echo $work_path
+
+# create random perturbations
+ensemble_size=3
+#
+ for (( i=1; i<=${ensemble_size}; i++ )); do
+     mem_path=${work_path}/result/mem$i
+     mkdir -p $mem_path
+     cd $mem_path
+     cp $work_path/bin/p_pseudo2D . 
+     cp $work_path/pseudo2D.nml .
+     ./p_pseudo2D
+     echo "Finish $i over ${ensemble_size} members"
+ done
+
+ulimit -s 2000000 # set sufficient stack  https://stackoverflow.com/questions/66034666/ulimit-stack-size-through-slurm-script
+  
+ $work_path/slurm_script.sh $work_path $ensemble_size
+
+```
