@@ -89,5 +89,8 @@ the job to be terminated. The first process to do so was:
   Exit code:    127
 --------------------------------------------------------------------------
 ```
+where it seems that there is a problem with the bamg  library and or the DataSet class? 
+I'm guessing this DataSet class is not used in the simpler example config (cf 1.). Is this an error coming that the version of the docker image not being consistent with the latest version of branch develop ? I'll ask Aurélie if she can reproduce this error on her machine.
+
 
 
