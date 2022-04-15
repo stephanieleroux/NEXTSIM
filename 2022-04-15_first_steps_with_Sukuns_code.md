@@ -142,6 +142,7 @@ done
 
 ```
 
+---
 ### 7. My questions to Sukun (and his answers):
 
 **(a) Regarding the compilation of the fortran libraries (in the makefile):**
@@ -174,3 +175,5 @@ Why have the output perturbations become 1-dimension in the output files? (I mea
 More generally, how are these perturbation files then used in a nextsim run? Where could I look at an example code where you have applied those perturbations to the atmospheric forcing? Which GitHub branch should I look at? What part of the code?
 
 *Sukun's answer: *You can search for code segment within # ifdef ENSEMBLE label or function perturbLoadedData() directly in nextsim/model/externaldata.cpp. For example, https://github.com/nansencenter/nextsim/blob/IOPerturbation-fram-compile/model/externaldata.cpp # L233*
+---
+
