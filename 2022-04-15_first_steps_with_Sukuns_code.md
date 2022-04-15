@@ -7,7 +7,7 @@
 I decided to test this code on jean zay because it is a fortran code with different libraries to link, and this is pretty easy to do on jean zay as many libraries are alreay installed and you don't need to know each path to the -I and -L compiler options as it is implicit.
 
 ### 3. Compiled code with adapted makefile.
-* i simplified the makefile so that it works on jean zay (removed the -I and -L options) and adapted to the name of the intel compiler on jean zay.
+* i simplified the makefile so that it works on jean zay (removed the -I and -L options in `FLIBS=`) and adapted to the name of the intel compiler on jean zay.
 ```
 INCPATH = .:../
 #
