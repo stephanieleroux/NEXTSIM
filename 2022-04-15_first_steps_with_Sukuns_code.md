@@ -1,6 +1,6 @@
 # my first steps with Sukun's code to perturb the atmospheric forcing
 
-### 1. starting point: Sukun's tuto:
+### 1. My starting point: Sukun's tutorial:
  https://github.com/nansencenter/nextsim/tree/IOPerturbation-fram-compile/modules/enkf/offline_perturbations
 
 ### 2. Copied files on French HPC Jean Zay for testing
