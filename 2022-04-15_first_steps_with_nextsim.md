@@ -38,8 +38,8 @@ docker run —rm -it -v /Users/leroux/DATA/NEXTSIM:/mesh -v /Users/leroux/DATA/N
 
 ---
 ## 2. Realistic config from Einar's tutorial (FAILS-15/04/2022):
-* Get data from Aurélie (from Einar's SASIP tutorial from Jun 2021).
-* Run test:
+* Get data from Aurélie (from Einar's SASIP tutorial from Jun 2021) and copy it to  /Users/leroux/DATA/NEXTSIM/CLIMRUN`.
+* Then run test:
 ```
 cd /Users/leroux/DATA/NEXTSIM/CLIMRUN
 ./run_me.sh
