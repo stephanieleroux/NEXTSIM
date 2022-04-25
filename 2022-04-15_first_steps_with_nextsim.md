@@ -1,5 +1,5 @@
 # My first steps with nextsim
-Latest update on 2022-04-15.
+Latest update on 2022-04-25.
 
 
 ## 1. Simple idealized run from Anton's tutorial (SUCCESS-15/04/2022):
