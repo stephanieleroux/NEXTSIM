@@ -95,7 +95,7 @@ where it seems that there is a problem with the bamg  library and or the DataSet
 I'm guessing this DataSet class is not used in the simpler example test (cf 1.) and this is why it runs successfully while this realistic config does not?  Is this an error coming that the version of the docker image not being consistent with the latest version of branch develop ? I'll ask Aurélie if she can reproduce this error on her machine.
 
 ---
-## 3. Realistic config from Einar's tutorial (SUCCED-25/04/2022):
+## 3. Realistic config from Einar's tutorial (SUCCESS-25/04/2022):
 
 * Get nextsim version from August 2022 (when the tutorial was made initially) :
 ```
@@ -107,14 +107,19 @@ git clone —branch 2.0.0 git@github.com:nansencenter/nextsim.git
 docker build . -t nextsim —build-arg BASE_IMAGE=nansencenter/nextsim_base:0.5
 ```
 
-* run Einar’s example (`duration=60` in namelist): SUCCESS!
+* Copy mesh and check namelist:
 ```
 cd /Users/leroux/DATA/NEXTSIM/CLIMRUN/
 cp small_arctic_10km.msh /Users/leroux/WORK/DEV/NEXTSIM/nextsim/mesh/
-./run_me.sh
-
 ```
-* stats from the run: **10 min to run 1 day** using 3 CPU on my own laptop (mac OS).
+Remove `h_thin_max=0.3` in  namelist `bbm_control.cfg` 
+
+* run Einar’s example (`duration=60` in namelist): SUCCESS!
+```
+./run_me.sh
+```
+Stats from the run: **10 min to run 1 day using 3 CPU** on my own laptop (mac OS).
+
 ```
 (base) leroux@slx:CLIMRUN>>./run_me.sh
 Reading /data/bbm_control.cfg...
