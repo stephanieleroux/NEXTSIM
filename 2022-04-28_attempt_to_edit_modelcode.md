@@ -40,4 +40,9 @@ Next steps to be tested:
 - re-run a few days after recompiling the code and adding the compilation key ENSEMBLE (with a minor edit of the code like a print, for example?)
 
 ## 2. Re-run the model after recompiling the  model code "in-place"
-(more to come)
+--> Success.
+
+(Note: no need to increase the number of threads since there is only 2 available on my mac...)
+
+## 3. Edit and re-recompile
+* Test 1: 
