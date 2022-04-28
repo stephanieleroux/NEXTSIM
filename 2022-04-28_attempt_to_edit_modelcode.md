@@ -33,7 +33,7 @@ docker run --rm -it nextsim bash
 total 4464
 -rwxr-xr-x  1 leroux  staff  1751544 Apr 28 13:44 nextsim.exec
 ```
-Note: in the tuto, Anton says that when running the model, the executable will first look inside /nextsim/ and then in /usr/bin/ if not found in the first dir. (Does that suppose to run the script from inside /nextsim/? I don't know yet. To be tested).
+Note: in the tuto, Anton says that when running the model, the executable will first looked for inside /nextsim/ and then in /usr/bin/ if not found in the first dir. (Does that suppose to run the script from inside /nextsim/? I don't know yet. To be tested).
 
 Next steps to be tested:
 - re-run a few days after recompiling the code in place.
