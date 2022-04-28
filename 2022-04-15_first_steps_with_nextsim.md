@@ -210,6 +210,6 @@ Reading /data/bbm_control.cfg...
 ---
 ### Summary
 * Model runs
-* But remains the question of why do i need to commentoff `h_thin_max=0.3` in namelist.
-* Also the model runs slowly on my laptop with 3 proc (10 min / 1 model day). And freezes when start a 2 months run (memory?).
+* But remains the question of why do i need to commentoff `h_thin_max=0.3` in namelist. (upd 2022-04-28 : i noticed that `h_thin_max=0.3` exists in options.cpp in /nextsim/research/ but not in the options.cpp that is in /nextsim/model/. Einar might have used this option with a re-compiled version of the code?
+* Also the model runs slowly on my laptop with 3 proc (10 min / 1 model day). And freezes when start a 2 months run (memory?). (upd 2022-04-28 : 3 CPUS should alow 6 threads in the mpi command).
 * AA reproduced all of the above.
