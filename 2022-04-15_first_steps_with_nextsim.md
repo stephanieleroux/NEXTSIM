@@ -206,3 +206,10 @@ Reading /data/bbm_control.cfg...
 [INFO] : -----------------------Simulation done on 2022-Apr-25 08:46:20
 [INFO] : -----------------------Total time spent:  00:20:30
 ```
+
+---
+### Summary
+* Model runs
+* But remains the question of why do i need to commentoff `h_thin_max=0.3` in namelist.
+* Also the model runs slowly on my laptop with 3 proc (10 min / 1 model day). And freezes when start a 2 months run (memory?).
+* AA reproduced all of the above.
