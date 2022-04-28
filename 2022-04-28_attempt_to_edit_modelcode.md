@@ -1,6 +1,7 @@
 
 # Attempt to edit and recompile the code
-(in the objective to include the ensemble part by sukun)
+(Attempt to edit and recompile the code in the objective to include the ensemble part by sukun)
+
 Latest update on 2022-04-28.
 
 
