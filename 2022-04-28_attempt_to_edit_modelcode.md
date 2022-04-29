@@ -45,4 +45,36 @@ Next steps to be tested:
 (Note: no need to increase the number of threads since there is only 2 available on my mac...)
 
 ## 3. Edit and re-recompile
-* Test 1: 
+#### Test 1: 
+* In `externaldata.cpp`, edit the code to print something when the ENSEMBLE compilation key is activated. (the initial externaldata.cpp was archived on the side). 
+```
+/// {SLX
+#ifdef ENSEMBLE
+std::cout<< "========= ENSEMBLE KEY ACTIVATED ";
+LOG(DEBUG) << ""========= ENSEMBLE KEY ACTIVATED "\n";
+#endif
+/// }SLX
+```
+* Also commented off the `include "ensemble.hpp"`:
+```
+/#ifdef ENSEMBLE
+/#include "ensemble.hpp"
+/#endif
+```
+* In `nextsim/model/` dir, created a short script :
+```
+#! /bin/bash
+# script to recompile the model code inside the docker container with the compilation key ENSEMBLE switched on
+export USE_ENSEMBLE=1
+make
+```
+* Comment off in Makefile:
+```
+### {SLX
+#CXXFLAGS += -I $(NEXTSIMDIR)/modules/enkf/perturbation/include
+### }SLX
+```
+* Then recompile:
+```
+docker run --rm -it -v /Users/leroux/WORK/DEV/NEXTSIM/nextsim:/nextsim/ -w /nextsim/model nextsim ./recomp_ens.sh
+```
