@@ -20,7 +20,7 @@ docker run --rm -it nextsim bash
 ```
 * Now re-compile in place the code:
 ```
-docker run —rm -it -v /Users/leroux/WORK/DEV/NEXTSIM/nextsim:/nextsim/ -w /nextsim/model nextsim make
+docker run --rm -it -v /Users/leroux/WORK/DEV/NEXTSIM/nextsim:/nextsim/ -w /nextsim/model nextsim make
 ```
 Note: Needs to use -v option to mount the local files in the docker container.
 Note: Seems important to use `:/nextsim/ ` rather than `:/nextsim` so that the local files are coorectly mounted in the container.
