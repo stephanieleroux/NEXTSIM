@@ -51,8 +51,7 @@ Next steps to be tested:
 /* {SLX  */
 #ifdef ENSEMBLE
 std::cout<< "========= ENSEMBLE KEY ACTIVATED ";
-LOG(DEBUG) << ""========= ENSEMBLE KEY ACTIVATED "\n";
-#endif
+:#endif
 /* SLX}  */
 ```
 * Also commented off the `include "ensemble.hpp"`:
@@ -77,7 +76,18 @@ make
 #CXXFLAGS += -I $(NEXTSIMDIR)/modules/enkf/perturbation/include
 ### }SLX
 ```
+and
+```
+### {SLX
+ifdef USE_ENSEMBLE
+        LDFLAGS += -L $(NEXTSIMDIR)/lib -lpseudo2D
+        LDFLAGS += -lgfortran
+endif
+### SLX}
+```
 * Then recompile:
 ```
 docker run --rm -it -v /Users/leroux/WORK/DEV/NEXTSIM/nextsim:/nextsim/ -w /nextsim/model nextsim ./recomp_ens.sh
 ```
+--> compiled!
+* Then test run:
