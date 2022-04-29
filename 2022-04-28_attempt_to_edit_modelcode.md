@@ -79,10 +79,10 @@ make
 and
 ```
 ### {SLX
-ifdef USE_ENSEMBLE
-        LDFLAGS += -L $(NEXTSIMDIR)/lib -lpseudo2D
-        LDFLAGS += -lgfortran
-endif
+#ifdef USE_ENSEMBLE
+#        LDFLAGS += -L $(NEXTSIMDIR)/lib -lpseudo2D
+#        LDFLAGS += -lgfortran
+#endif
 ### SLX}
 ```
 * Then recompile:
