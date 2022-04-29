@@ -48,18 +48,21 @@ Next steps to be tested:
 #### Test 1: 
 * In `externaldata.cpp`, edit the code to print something when the ENSEMBLE compilation key is activated. (the initial externaldata.cpp was archived on the side). 
 ```
-/// {SLX
+/* {SLX  */
 #ifdef ENSEMBLE
 std::cout<< "========= ENSEMBLE KEY ACTIVATED ";
 LOG(DEBUG) << ""========= ENSEMBLE KEY ACTIVATED "\n";
 #endif
-/// }SLX
+/* SLX}  */
 ```
 * Also commented off the `include "ensemble.hpp"`:
 ```
-/#ifdef ENSEMBLE
-/#include "ensemble.hpp"
-/#endif
+/* SLX
+ #ifdef ENSEMBLE
+ #include "ensemble.hpp"
+ #endif
+SLX
+*/
 ```
 * In `nextsim/model/` dir, created a short script :
 ```
