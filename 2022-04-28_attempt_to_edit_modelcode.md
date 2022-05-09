@@ -91,3 +91,4 @@ docker run --rm -it -v /Users/leroux/WORK/DEV/NEXTSIM/nextsim:/nextsim/ -w /next
 ```
 --> compiled!
 * Then test run:
+--> run!
