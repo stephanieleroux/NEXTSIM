@@ -1,7 +1,7 @@
 # NeXtSIM on Gricad
 
 ### SIngularity
-* Rely on a Singularity image build by Aurélie A. from her mac. _[Note: get precise references for the image. Which versions of softwares, BAMG, etc]_ 
+* Rely on a Singularity image build by Aurélie A. from her mac.
 * A Singularity image gives you access to a working environment (with a compiler and all dependecies needed, such as BAMG). But you need to compile the neXtSIM code.
 
 ### Compile NeXtSIM
