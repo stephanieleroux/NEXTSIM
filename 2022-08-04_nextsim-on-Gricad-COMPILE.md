@@ -1,4 +1,4 @@
-# Start with NeXtSIM on Gricad
+# Start with NeXtSIM on Gricad (1/2):  Compilation.
 
 last update: 2022-08-04.
 
