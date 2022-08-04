@@ -4,7 +4,7 @@ last update: 2022-08-04.
 
 ### SIngularity
 * Rely on a Singularity image build by Aurélie A. from her mac.
-* A Singularity image gives you access to a working environment (with a compiler and all dependecies needed, such as BAMG). But you need to compile the neXtSIM code.
+* A Singularity image gives you access to a working environment (with a compiler and all dependecies needed, such as BAMG). But you need to re-compile the neXtSIM code and all dependencies.
 
 ### Compile NeXtSIM
 * Get an interactive session on dahu:
@@ -21,6 +21,7 @@ This is to set the variables and links to establish between local directory and 
 vi ./env_dahu_compil.src 
 # location of config files and master scripts
 export NEXTSIM_CODE_DIR=/bettik/lerouste/nextsim/
+export 
 
 # singularity image
 export NEXTSIM_IMAGE_NAME=/bettik/alberta/runs_nextsim/nextsim.sif
@@ -33,7 +34,23 @@ export SINGULARITY_BIND="$NEXTSIM_CODE_DIR:/nextsim"
 ```
 singularity shell $NEXTSIM_IMAGE_NAME
 
-cd /nextsim/model
+cd /nextsim
 make fresh -j8
 ```
 
+* To do the same with a job:
+```
+vi job_compil.sh
+#!/bin/bash
+#OAR -n compilnextsim
+#OAR -l /nodes=1/core=8,walltime=00:30:00
+#OAR --stdout compilnextsim.out
+#OAR --stderr compilnextsim.err
+#OAR --project pr-data-ocean
+#OAR -t devel
+
+source /bettik/lerouste/run_nextsim/compil/env_dahu_compil.src
+
+/usr/local/bin/singularity exec $NEXTSIM_IMAGE_NAME bash -c "cd /nextsim && make fresh -j8"
+```
+and then : `oarsub -S ./job_compil.sh`
