@@ -8,12 +8,13 @@
 * Get an interactive session on dahu:
 ```
 cd /bettik/lerouste/run_nextsim/compil
-oarsub -t devel -l /nodes=1/core=1,walltime=00:30:00 --project pr-data-ocean -I
+oarsub -t devel -l /nodes=1/core=8,walltime=00:30:00 --project pr-data-ocean -I
 ```
-* Source environment (set links to establish between local directory and the Singularity image):
+* Source environment :
 ```
 source ./env_dahu_compil.src 
 ```
+This is to set the variables and links to establish between local directory and the Singularity image:
 ```
 vi ./env_dahu_compil.src 
 # location of config files and master scripts
@@ -26,3 +27,11 @@ export NEXTSIM_IMAGE_NAME=/bettik/alberta/runs_nextsim/nextsim.sif
 export SINGULARITY_BIND="$NEXTSIM_CODE_DIR:/nextsim"
 
 ```
+* Then run a Shell in the Singularity image, go in the model subdirectory, and run `make`:
+```
+singularity shell $NEXTSIM_IMAGE_NAME
+
+cd /nextsim/model
+make fresh -j8
+```
+
