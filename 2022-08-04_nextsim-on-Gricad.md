@@ -2,11 +2,11 @@
 
 last update: 2022-08-04.
 
-### SIngularity
+### Singularity
 * Rely on a Singularity image build by Aurélie A. from her mac.
 * A Singularity image gives you access to a working environment (with a compiler and all dependecies needed, such as BAMG). But you need to re-compile the neXtSIM code and all dependencies.
 
-### Compile NeXtSIM
+### Compile NeXtSIM 
 * Get an interactive session on dahu:
 ```
 cd /bettik/lerouste/run_nextsim/compil
@@ -54,3 +54,9 @@ source /bettik/lerouste/run_nextsim/compil/env_dahu_compil.src
 /usr/local/bin/singularity exec $NEXTSIM_IMAGE_NAME bash -c "cd /nextsim && make fresh -j8"
 ```
 and then : `oarsub -S ./job_compil.sh`
+
+
+### Compile NeXtSIM with ensemble code modifs
+* I copied the code from my laptop.
+* Added `export USE_ENSEMBLE=1` in the `env_dahu_compil.src`  file
+* `ensemble.cpp` and `ensemble.hpp` copied in /nextsim/model
