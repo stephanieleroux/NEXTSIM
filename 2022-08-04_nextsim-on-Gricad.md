@@ -1,4 +1,4 @@
-# NeXtSIM on Gricad
+# Start with NeXtSIM on Gricad
 
 last update: 2022-08-04.
 
@@ -44,8 +44,8 @@ vi job_compil.sh
 #!/bin/bash
 #OAR -n compilnextsim
 #OAR -l /nodes=1/core=8,walltime=00:30:00
-#OAR --stdout compilnextsim.out
-#OAR --stderr compilnextsim.err
+#OAR --stdout compilnextsim_%jobid%.out
+#OAR --stderr compilnextsim_%jobid%.err
 #OAR --project pr-data-ocean
 #OAR -t devel
 
@@ -58,5 +58,8 @@ and then : `oarsub -S ./job_compil.sh`
 
 ### Compile NeXtSIM with ensemble code modifs
 * I copied the code from my laptop.
-* Added `export USE_ENSEMBLE=1` in the `env_dahu_compil.src`  file
-* `ensemble.cpp` and `ensemble.hpp` copied in /nextsim/model
+* Added `export USE_ENSEMBLE=1` in the `env_dahu_compil.src`  file (so that the model code is compiled with this compilation key). 
+* `ensemble.cpp` and `ensemble.hpp` copied in /nextsim/model instead of being compiled in `modules/enkF/perturbation`
+ because i couldnt have it worked.
+ 
+### See next notebook to run test experiments. 
