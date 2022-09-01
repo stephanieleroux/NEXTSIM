@@ -60,6 +60,6 @@ and then : `oarsub -S ./job_compil.sh`
 * I copied the code from my laptop.
 * Added `export USE_ENSEMBLE=1` in the `env_dahu_compil.src`  file (so that the model code is compiled with this compilation key). 
 * `ensemble.cpp` and `ensemble.hpp` copied in /nextsim/model instead of being compiled in `modules/enkF/perturbation`
- because i couldnt have it worked.
+ because i wasn't able to have it worked otherwise.
  
 ### See next notebook to run test experiments. 
