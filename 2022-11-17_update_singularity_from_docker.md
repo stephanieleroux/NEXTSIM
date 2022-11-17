@@ -2,11 +2,12 @@ Stephanie Leroux
 
 Latest update: 2022-11-17
 
-## Context and objective
-* I want to be able to update nextsim code from the develop branch as soon as I want. I want to make my own edits in the code and re-compile.
+## Objective
+* Convert the Docker image base for neXtSIM provided by NERSC  to a SIngularity image that i can use on a HPC server.
+
+## Context 
 *  My usual workflow is to run neXtSIM on a HPC server (Dahu@GRICAD) which does not allow Docker containers, and favours environments installed via Singularity.
 * I also have  a Mac laptop with the new Apple M1 chip (arch: arm64).
-*  The objective of this note is to keep track of what I need to do to update nextsim code from the develop branch and run it on Dahu@GRICAD.
 
 - - - -
 ## Prerequisite
