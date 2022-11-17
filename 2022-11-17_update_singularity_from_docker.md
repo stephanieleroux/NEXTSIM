@@ -101,7 +101,7 @@ export SINGULARITY_BIND=“$NEXTSIM_CODE_DIR:/nextsim"
 # source environment
 source /bettik/lerouste/DEVGIT/run_nextsim/compil/env_dahu_compil_latestNOV2022.src
 
-# run singumarity and run make to compile the model code only
+# run singularity and run make to compile the model code only
 /usr/local/bin/singularity exec $NEXTSIM_IMAGE_NAME bash -c "cd /nextsim/model && make fresh -j 7"               
 ```
  
