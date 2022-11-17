@@ -2,9 +2,11 @@ Stephanie Leroux
 
 Latest update: 2022-11-17
 
+- - - -
 ## Objective
-* Convert the Docker image base for neXtSIM provided by NERSC  to a SIngularity image that i can use on a HPC server.
+* Convert the NeXtSIM Docker image  provided by NERSC  to a SIngularity image that i can use on a HPC server.
 
+- - - -
 ## Context 
 *  My usual workflow is to run neXtSIM on a HPC server (Dahu@GRICAD) which does not allow Docker containers, and favours environments installed via Singularity.
 * I also have  a Mac laptop with the new Apple M1 chip (arch: arm64).
