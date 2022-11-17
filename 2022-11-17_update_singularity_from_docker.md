@@ -44,7 +44,7 @@ git checkout develop
 docker buildx build --platform linux/amd64 . -t nextsim_armv7_buildx_explicit --build-arg BASE_IMAGE=nansencenter/nextsim_base 
 ```
 
-Note that this command  will build an image for linux/amd64/X86 architectures, which is not the architecture of  my arm64/M1 Mac. 
+Note that this command  will, by design,  build an image for linux/amd64/X86 architectures, which is _not_ the right architecture of  my arm64/M1 Mac. 
 (If you need an image for an M1 mac, do `--platform linux/arm64` instead). 
 More info: See tuto there: https://www.docker.com/blog/multi-platform-docker-builds/
 
