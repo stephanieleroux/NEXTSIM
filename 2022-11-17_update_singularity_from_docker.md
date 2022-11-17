@@ -50,7 +50,7 @@ More info: See tuto there: https://www.docker.com/blog/multi-platform-docker-bui
 
 - - - -
 ## On my Mac laptop: convert the above docker image to singularity
-* Make use of an “extension” of Docker named quay.io/singularity/docker2singularity to convert the docker image into a singumarity image:
+* Make use of an “extension” of Docker named quay.io/singularity/docker2singularity to convert the docker image into a singularity image (More info here: https://github.com/singularityhub/docker2singularity):
 ```
 docker run  -v /var/run/docker.sock:/var/run/docker.sock \
 -v /Users/leroux/n/img:/output \
@@ -58,8 +58,7 @@ docker run  -v /var/run/docker.sock:/var/run/docker.sock \
 quay.io/singularity/docker2singularity \
 nextsim_amd64_buildx_explicit
 ```
-More info here: https://github.com/singularityhub/docker2singularity
-The command above has created a singularity image `nextsim_amd64_buildx_explicit.sif`
+--> The command above has created a singularity image `nextsim_amd64_buildx_explicit.sif`
 
 * Then copy it to Dahu@GRICAD:
 ```
