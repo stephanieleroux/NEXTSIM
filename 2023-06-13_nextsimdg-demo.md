@@ -12,7 +12,9 @@ sudo cmake --build build/ --target install
 
 ## get nextsimdg code:
 * Get the code (in "june23_demo" branch):
-```git clone --branch june23_demo git@github.com:nextsimdg/nextsimdg.git```
+```
+git clone --branch june23_demo git@github.com:nextsimdg/nextsimdg.git
+```
 
 ## compile nextsimdg
 ``` 
