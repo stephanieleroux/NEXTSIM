@@ -46,7 +46,7 @@ wget https://ige-meom-opendap.univ-grenoble-alpes.fr/thredds/fileServer/meomopen
   * `Nextsim::IDynamics = Nextsim::DummyDynamics`
   * `stop = 2010-01-05T00:00:00Z`
 
-*  run the model
+*  run the model (Tim's test case):
 ```
 ./run_june23.sh
 ```
